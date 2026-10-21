@@ -1,58 +1,652 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div dir="rtl" align="right">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 🛍️ ARK Style
 
-## About Laravel
+فروشگاه اینترنتی پوشاک مردانه با تمرکز بر تجربه خرید مدرن، معماری تمیز، کدنویسی اصولی و ساخت یک پروژه حرفه‌ای و قابل ارائه در رزومه.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🎯 هدف پروژه
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+هدف ARK Style ساخت یک فروشگاه اینترنتی حرفه‌ای و نزدیک به پروژه‌های واقعی بازار است؛ به‌گونه‌ای که علاوه بر امکانات فروشگاهی، معماری پروژه، ساختار کد، مدیریت داده‌ها و منطق کسب‌وکار نیز به شکل اصولی پیاده‌سازی شوند.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+تمرکز اصلی پروژه روی موارد زیر است:
 
-## Learning Laravel
+- تجربه کاربری ساده و سریع
+- طراحی مدرن و واکنش‌گرا
+- پنل مدیریت اختصاصی
+- معماری ماژولار
+- رعایت اصول SOLID
+- استفاده صحیح از Design Patternها
+- Clean Code
+- جلوگیری از پیچیده‌سازی غیرضروری
+- آماده بودن ساختار پروژه برای توسعه در نسخه‌های آینده
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# 🏪 فروشگاه
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+ARK Style یک فروشگاه اینترنتی برای فروش محصولات پوشاک مردانه است.
 
-## Agentic Development
+محصولات فروشگاه می‌توانند شامل مواردی مانند:
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+- لباس‌های مردانه
+- کت و کاپشن
+- شلوار
+- کفش
+- اکسسوری
+- سایر محصولات مرتبط با پوشاک مردانه
 
-```bash
-composer require laravel/boost --dev
+باشند.
 
-php artisan boost:install
+---
+
+# 🏠 صفحه اصلی
+
+صفحه اصلی فروشگاه با هدف معرفی محصولات، دسته‌بندی‌ها و پیشنهادهای ویژه طراحی می‌شود.
+
+بخش‌های اصلی:
+
+- اسلایدر رویدادها
+- دسته‌بندی محصولات
+- محصولات منتخب
+- محصولات جدید
+- محصولات ویژه
+- تخفیف‌ها و پیشنهادها
+- دسترسی سریع به محصولات
+- بخش‌های تبلیغاتی
+
+---
+
+# 📂 دسته‌بندی محصولات
+
+سیستم دسته‌بندی برای مدیریت بهتر محصولات طراحی شده است.
+
+امکانات:
+
+- ایجاد دسته‌بندی
+- ویرایش دسته‌بندی
+- حذف دسته‌بندی
+- نمایش لیست دسته‌بندی‌ها
+- ارتباط دسته‌بندی‌ها با محصولات
+- امکان ایجاد ساختارهای مرتبط بین دسته‌بندی‌ها
+- انتخاب دسته‌بندی در هنگام ایجاد محصول
+
+---
+
+# 👕 مدیریت محصولات
+
+مدیریت محصولات یکی از بخش‌های اصلی پروژه است.
+
+امکانات در نظر گرفته شده:
+
+- نمایش لیست محصولات
+- ایجاد محصول
+- ویرایش محصول
+- نمایش جزئیات محصول
+- جستجوی محصول
+- انتخاب دسته‌بندی
+- انتخاب رنگ
+- انتخاب سایز
+- مدیریت تصاویر
+- مدیریت گالری
+- مدیریت ویژگی‌ها
+- مدیریت موجودی
+- مدیریت قیمت
+- مدیریت وضعیت محصول
+
+---
+
+# 🎨 رنگ‌بندی محصولات
+
+محصولات می‌توانند دارای چند رنگ مختلف باشند.
+
+برای هر محصول امکان انتخاب و مدیریت رنگ‌های مختلف در نظر گرفته می‌شود.
+
+هدف این بخش ایجاد ساختاری مناسب برای مدیریت تنوع محصولات و نمایش صحیح آن‌ها در فروشگاه است.
+
+---
+
+# 📏 سایزبندی محصولات
+
+محصولات پوشاک می‌توانند دارای سایزهای مختلف باشند.
+
+ساختار پروژه امکان مدیریت سایزها و ارتباط آن‌ها با محصولات را فراهم می‌کند.
+
+---
+
+# 🖼️ گالری محصولات
+
+هر محصول می‌تواند دارای چندین تصویر باشد.
+
+امکانات گالری:
+
+- تصویر اصلی محصول
+- تصاویر بیشتر
+- مدیریت تصاویر
+- حذف تصاویر
+- مرتب‌سازی تصاویر
+- نمایش تصاویر در صفحه محصول
+
+---
+
+# 🏷️ ویژگی‌های محصولات
+
+برای محصولات امکان تعریف ویژگی‌های مختلف در نظر گرفته شده است.
+
+این ویژگی‌ها می‌توانند شامل مواردی مانند:
+
+- جنس
+- برند
+- نوع محصول
+- مدل
+- مشخصات فنی
+- ویژگی‌های ظاهری
+- سایر ویژگی‌های قابل تعریف
+
+باشند.
+
+---
+
+# 🔎 جستجوی محصولات
+
+سیستم جستجوی محصولات برای دسترسی سریع‌تر کاربران به محصولات موردنظر طراحی می‌شود.
+
+امکانات:
+
+- جستجوی محصول
+- نمایش نتایج مرتبط
+- دسترسی سریع به صفحه محصول
+- ساختار قابل توسعه برای فیلترهای آینده
+
+---
+
+# 🛒 سبد خرید
+
+کاربر می‌تواند محصولات موردنظر خود را به سبد خرید اضافه کند.
+
+امکانات:
+
+- افزودن محصول به سبد خرید
+- حذف محصول
+- تغییر تعداد
+- مشاهده قیمت
+- مشاهده جمع کل
+- مدیریت محصولات موجود در سبد
+- انتقال به مرحله پرداخت
+
+---
+
+# 📦 سفارش و خرید
+
+فرآیند خرید به شکلی طراحی می‌شود که کاربر بتواند با کمترین مراحل سفارش خود را ثبت کند.
+
+فرآیند کلی:
+
+```text
+انتخاب محصول
+    ↓
+سبد خرید
+    ↓
+ورود / ثبت‌نام
+    ↓
+انتخاب آدرس
+    ↓
+انتخاب روش ارسال
+    ↓
+بررسی سفارش
+    ↓
+پرداخت
+    ↓
+ثبت سفارش
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+# 📍 آدرس و ارسال
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+در فرآیند خرید امکان مدیریت آدرس و روش ارسال در نظر گرفته می‌شود.
 
-## Code of Conduct
+امکانات:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- ثبت آدرس
+- ویرایش آدرس
+- انتخاب آدرس
+- نمایش آدرس هنگام خرید
+- انتخاب روش ارسال
+- محاسبه هزینه ارسال
+- اتصال فرآیند ارسال به سفارش
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 💳 درگاه پرداخت
 
-## License
+فرآیند پرداخت آنلاین برای تکمیل خرید در نظر گرفته شده است.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ساختار پرداخت به شکلی طراحی می‌شود که امکان اتصال به درگاه پرداخت و مدیریت وضعیت تراکنش وجود داشته باشد.
+
+فرآیند کلی:
+
+```text
+ایجاد سفارش
+    ↓
+ایجاد تراکنش
+    ↓
+انتقال به درگاه
+    ↓
+بازگشت از درگاه
+    ↓
+بررسی تراکنش
+    ↓
+تأیید پرداخت
+    ↓
+تکمیل سفارش
+```
+
+---
+
+# 🔐 احراز هویت
+
+سیستم احراز هویت با استفاده از OTP طراحی می‌شود.
+
+بخش‌های اصلی:
+
+- ورود با شماره تلفن
+- ثبت‌نام با شماره تلفن
+- ارسال کد OTP
+- تأیید کد OTP
+- بازیابی رمز عبور با OTP
+- تغییر رمز عبور
+- مدیریت نشست کاربر
+
+برای ارسال پیامک از سرویس ملی پیامک استفاده خواهد شد.
+
+---
+
+# 👤 مدیریت کاربران
+
+پنل مدیریت دارای بخش مدیریت کاربران خواهد بود.
+
+امکانات:
+
+- مشاهده لیست کاربران
+- مشاهده اطلاعات کاربر
+- مدیریت کاربران
+- مشاهده آدرس‌ها
+- مشاهده اطلاعات مرتبط با سفارش‌ها
+- مدیریت دسترسی کاربران
+
+---
+
+# 🛡️ نقش‌ها و دسترسی‌ها
+
+برای مدیریت دسترسی کاربران پنل مدیریت از سیستم Role & Permission استفاده می‌شود.
+
+امکانات:
+
+- ایجاد نقش
+- اختصاص نقش
+- مدیریت Permissionها
+- اختصاص Permission به کاربران
+- کنترل دسترسی بخش‌های مختلف پنل
+
+این بخش با استفاده از Spatie Permission پیاده‌سازی خواهد شد.
+
+---
+
+# 🏷️ تخفیف‌ها و رویدادها
+
+برای ایجاد کمپین‌های فروش و پیشنهادهای ویژه، سیستم رویدادها و تخفیف‌ها در نظر گرفته شده است.
+
+امکانات آینده این بخش می‌تواند شامل:
+
+- تخفیف محصول
+- تخفیف دسته‌بندی
+- کد تخفیف
+- کمپین فروش
+- رویدادهای مناسبتی
+- پیشنهادهای ویژه
+- محدودیت زمانی تخفیف
+
+باشد.
+
+---
+
+# ⚙️ پنل مدیریت
+
+پنل مدیریت به صورت اختصاصی برای مدیریت فروشگاه طراحی می‌شود.
+
+ساختار کلی پنل:
+
+```text
+Admin
+│
+├── Authentication
+│   ├── OTP
+│   ├── Login
+│   └── Password Reset
+│
+├── User
+│   ├── User List
+│   └── Manage Users
+│
+├── Category
+│   ├── Category List
+│   ├── Create
+│   ├── Edit
+│   └── Category Relations
+│
+├── Product
+│   ├── Product List
+│   ├── Create
+│   ├── Edit
+│   ├── Search
+│   ├── Colors
+│   ├── Galleries
+│   ├── Sizes
+│   ├── Attributes
+│   └── Show Product
+│
+├── Role & Permission
+│   └── Manage Permissions
+│
+├── Category Attribute
+│
+└── Product Attribute
+```
+
+---
+
+# 🧩 معماری پروژه
+
+ساختار پروژه با رویکرد ماژولار طراحی می‌شود تا بخش‌های مختلف سیستم تا حد امکان مستقل و قابل توسعه باشند.
+
+رویکرد کلی توسعه:
+
+```text
+Architecture
+     ↓
+Database
+     ↓
+Business Logic
+     ↓
+Backend
+     ↓
+Integration
+     ↓
+UI
+     ↓
+Optimization
+```
+
+تمرکز اصلی روی این است که منطق کسب‌وکار به شکل مشخص و قابل نگهداری در پروژه قرار بگیرد و وابستگی‌های غیرضروری کاهش پیدا کنند.
+
+---
+
+# 🧱 SOLID
+
+در توسعه پروژه تلاش می‌شود اصول SOLID رعایت شوند.
+
+اصول مورد توجه:
+
+- Single Responsibility Principle
+- Open/Closed Principle
+- Liskov Substitution Principle
+- Interface Segregation Principle
+- Dependency Inversion Principle
+
+هدف از استفاده از این اصول، ایجاد کدی خوانا، قابل توسعه و قابل نگهداری است؛ نه پیچیده کردن پروژه صرفاً برای رعایت یک استاندارد.
+
+---
+
+# 🧠 Design Patterns
+
+در بخش‌هایی که واقعاً نیاز به الگوهای طراحی وجود داشته باشد، از Design Patternها استفاده خواهد شد.
+
+الگوهای مورد استفاده یا قابل استفاده در پروژه:
+
+- Service Pattern
+- Repository Pattern
+- Strategy Pattern
+- Factory Pattern
+- Observer Pattern
+- DTO
+- Action Pattern
+
+استفاده از Patternها وابسته به نیاز واقعی هر بخش خواهد بود و از استفاده غیرضروری از Patternها جلوگیری می‌شود.
+
+---
+
+# ✨ Clean Code
+
+یکی از اهداف اصلی پروژه رعایت اصول Clean Code است.
+
+موارد مورد توجه:
+
+- نام‌گذاری واضح
+- متدهای کوچک و مشخص
+- مسئولیت مشخص برای هر کلاس
+- جلوگیری از کد تکراری
+- کاهش وابستگی‌ها
+- جداسازی منطق کسب‌وکار
+- خوانایی کد
+- ساختار قابل نگهداری
+- جلوگیری از پیچیدگی غیرضروری
+
+---
+
+# 🛠️ تکنولوژی‌ها و ابزارها
+
+تکنولوژی‌ها و ابزارهای اصلی پروژه:
+
+- Laravel 13
+- Livewire 4
+- Nwidart Laravel Modules
+- Spatie Permission
+- Git
+- GitHub
+- ملی پیامک
+- Laravel Debugbar
+- DeepSeek
+
+---
+
+# 🤖 استفاده از هوش مصنوعی
+
+در این پروژه از ابزارهای هوش مصنوعی نیز استفاده شده است.
+
+استفاده اصلی از DeepSeek در بخش طراحی و ساخت رابط کاربری بوده است.
+
+هوش مصنوعی در این پروژه به عنوان ابزار کمکی برای ساخت UI استفاده می‌شود و تصمیم‌گیری‌های مربوط به:
+
+- معماری
+- طراحی دیتابیس
+- منطق کسب‌وکار
+- ساختار Backend
+- ارتباط بین بخش‌ها
+- انتخاب روش پیاده‌سازی
+- مدیریت داده‌ها
+
+بر اساس تصمیمات توسعه‌دهنده انجام می‌شود.
+
+هدف استفاده از AI در پروژه، افزایش سرعت توسعه و بهره‌گیری صحیح از ابزارهای مدرن توسعه نرم‌افزار است، نه جایگزین کردن مهارت مهندسی نرم‌افزار.
+
+---
+
+# 🎨 رابط کاربری و تجربه کاربری
+
+رابط کاربری پروژه با تمرکز بر یک تجربه خرید مدرن طراحی می‌شود.
+
+اهداف UI/UX:
+
+- ظاهر مدرن
+- طراحی حرفه‌ای
+- دسترسی سریع
+- فرآیند خرید ساده
+- کاهش مراحل غیرضروری
+- نمایش مناسب محصولات
+- تمرکز روی تصاویر محصولات
+- تعامل مناسب با کاربر
+- طراحی مناسب برای موبایل و دسکتاپ
+
+---
+
+# 📱 طراحی واکنش‌گرا
+
+تمام بخش‌های اصلی فروشگاه با رویکرد Responsive طراحی خواهند شد.
+
+صفحات مورد توجه:
+
+- صفحه اصلی
+- دسته‌بندی‌ها
+- لیست محصولات
+- صفحه محصول
+- سبد خرید
+- پرداخت
+- پنل کاربری
+- پنل مدیریت
+
+---
+
+# 🚀 نسخه اول پروژه
+
+هدف نسخه اول این است که یک فروشگاه کامل و قابل استفاده ایجاد شود.
+
+## امکانات اصلی نسخه اول
+
+- [ ] احراز هویت
+- [ ] ورود با OTP
+- [ ] ثبت‌نام
+- [ ] بازیابی رمز عبور با OTP
+- [ ] مدیریت کاربران
+- [ ] مدیریت نقش‌ها و دسترسی‌ها
+- [ ] مدیریت دسته‌بندی‌ها
+- [ ] مدیریت محصولات
+- [ ] مدیریت رنگ محصولات
+- [ ] مدیریت سایز
+- [ ] مدیریت گالری
+- [ ] مدیریت ویژگی‌ها
+- [ ] جستجوی محصولات
+- [ ] نمایش محصولات
+- [ ] صفحه محصول
+- [ ] سبد خرید
+- [ ] ثبت سفارش
+- [ ] مدیریت آدرس
+- [ ] روش ارسال
+- [ ] اتصال درگاه پرداخت
+- [ ] مدیریت تراکنش
+- [ ] تخفیف‌ها
+- [ ] رویدادها
+- [ ] پنل مدیریت اختصاصی
+- [ ] طراحی Responsive
+- [ ] بهینه‌سازی اولیه
+
+---
+
+# 🔮 نسخه‌های آینده
+
+برخی قابلیت‌ها عمداً برای نسخه‌های بعدی در نظر گرفته شده‌اند تا نسخه اول بیش از حد بزرگ و پیچیده نشود.
+
+امکانات احتمالی نسخه‌های آینده:
+
+- سیستم علاقه‌مندی‌ها
+- مقایسه محصولات
+- امتیازدهی به محصولات
+- نظرات کاربران
+- سیستم کد تخفیف پیشرفته
+- سیستم پیشنهاد هوشمند
+- گزارش‌های پیشرفته
+- داشبورد آماری
+- سیستم موجودی پیشرفته
+- مدیریت انبار
+- اعلان‌ها
+- پیامک‌های پیشرفته
+- سیستم وفاداری مشتریان
+- کیف پول
+- سیستم چند فروشندگی
+- امکانات پیشرفته بازاریابی
+
+---
+
+# 🧭 فلسفه پروژه
+
+هدف ARK Style صرفاً ساخت یک فروشگاه اینترنتی نیست.
+
+این پروژه به عنوان یک پروژه حرفه‌ای برای تمرین و نمایش توانایی‌های توسعه Backend و ساخت نرم‌افزار واقعی طراحی می‌شود.
+
+در این پروژه تلاش می‌شود بین موارد زیر تعادل برقرار شود:
+
+```text
+کیفیت
+  +
+سادگی
+  +
+قابلیت توسعه
+  +
+عملکرد
+  +
+تجربه کاربری
+```
+
+هدف این نیست که پروژه با پیچیده‌ترین معماری ممکن ساخته شود.
+
+هدف این است که برای هر مسئله، ساده‌ترین و مناسب‌ترین راه‌حل مهندسی انتخاب شود.
+
+---
+
+# 👨‍💻 رویکرد توسعه
+
+توسعه پروژه با تمرکز بر:
+
+- معماری اصولی
+- Backend قدرتمند
+- طراحی دیتابیس مناسب
+- منطق کسب‌وکار قابل توسعه
+- Clean Code
+- SOLID
+- Design Patterns در جای مناسب
+- امنیت
+- قابلیت نگهداری
+- تجربه کاربری
+- استفاده صحیح از ابزارهای AI
+- جلوگیری از Over Engineering
+
+انجام می‌شود.
+
+---
+
+# 👨‍💻 توسعه‌دهنده
+
+محسن مصلی 
+
+توسعه‌دهنده و طراح پروژه ARK Style
+
+📧 ایمیل:
+
+mmosalla36@gmail.com
+
+این پروژه به صورت مستقل توسعه داده می‌شود.
+
+---
+
+# 📊 وضعیت پروژه
+
+در حال توسعه 🚧
+
+نسخه اول پروژه در حال پیاده‌سازی است و امکانات مختلف به صورت مرحله‌ای توسعه داده می‌شوند.
+
+---
+
+# 🎯 هدف نهایی
+
+هدف نهایی ARK Style ساخت یک فروشگاه اینترنتی حرفه‌ای، قابل توسعه و نزدیک به استانداردهای پروژه‌های واقعی است.
+
+این پروژه علاوه بر محصول نهایی، بستری برای نمایش توانایی‌های توسعه نرم‌افزار، معماری Backend، طراحی دیتابیس، مدیریت منطق کسب‌وکار و استفاده صحیح از تکنولوژی‌های مدرن توسعه وب خواهد بود.
+
+---
+
+# 📄 مجوز
+
+این پروژه در حال توسعه است.
+
+جزئیات مربوط به License و نحوه استفاده از کد در نسخه نهایی پروژه مشخص خواهد شد.
+
+</div>
