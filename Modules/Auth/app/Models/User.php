@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Models;
 
+namespace Modules\Auth\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
@@ -10,7 +10,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password'])]
+#[Fillable([
+    'username',
+    'mobile',
+    'mobile_verified_at',
+    'password'
+])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {

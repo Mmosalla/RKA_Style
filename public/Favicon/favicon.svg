@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2A3757"/>
+      <stop offset="100%" stop-color="#151C30"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8D08F"/>
+      <stop offset="50%" stop-color="#C6A758"/>
+      <stop offset="100%" stop-color="#A58544"/>
+    </linearGradient>
+  </defs>
+  <!-- پس‌زمینه‌ی سرمه‌ای گرد -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <!-- حاشیه‌ی ظریف کرم (حس شیشه‌ای) -->
+  <rect x="0.5" y="0.5" width="63" height="63" rx="13.5"
+        fill="none" stroke="rgba(232,220,200,0.18)" stroke-width="1"/>
+  <!-- حرف A با ضخامت یکنواخت -->
+  <path d="M 12 54 L 30 12 L 48 54 M 19 42 L 41 42"
+        stroke="url(#gold)" stroke-width="7"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- نقطه‌ی برند (اشاره به «آرکا.») -->
+  <circle cx="52" cy="14" r="2.5" fill="#C6A758"/>
+</svg>
