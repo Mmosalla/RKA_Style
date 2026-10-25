@@ -11,6 +11,7 @@
           rel="stylesheet"/>
     <link rel="stylesheet" href="{{url('Panel/Auth/style.css')}}">
     <link rel="stylesheet" href="{{url('Panel/Loader/style.css')}}">
+    <link rel="stylesheet" href="{{url('Panel/Auth/Login/style.css')}}">
     <link rel="icon" type="image/svg+xml" href="{{url('Favicon/favicon.svg')}}" />
 </head>
 <body>
@@ -61,5 +62,6 @@
 <div class="bg-grid" aria-hidden="true"></div>
 {{$slot}}
 <script src="{{url('Panel/Auth/script.js')}}"></script>
+<script src="{{url('Panel/Auth/Login/script.js')}}"></script>
 </body>
 </html>

@@ -96,7 +96,7 @@ class Register extends Component
         Auth::login($user);
         event(new Registered($user));
         session()->regenerate();
-//        return redirect()->route('');
+        return redirect()->route('home');
     }
 
 
