@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{url('Panel/Auth/style.css')}}">
     <link rel="stylesheet" href="{{url('Panel/Loader/style.css')}}">
     <link rel="stylesheet" href="{{url('Panel/Auth/Login/style.css')}}">
+    <link rel="stylesheet" href="{{url('Panel/ResetPassword/style.css')}}">
     <link rel="icon" type="image/svg+xml" href="{{url('Favicon/favicon.svg')}}" />
 </head>
 <body>
@@ -54,6 +55,18 @@
         <path d="M12 8v14M8 8V6a2 2 0 114 0v2M16 8V6a2 2 0 10-4 0v2"/>
     </symbol>
 </svg>
+<svg class="svg-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.9.6 2.9.7a2 2 0 011.7 2z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7" cy="15" r="4"/><path d="M10 12l10-10 3 3-3 3-2-2-2 2-2-2-2 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-6.5 0-10-7-10-7a18.45 18.45 0 015.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c6.5 0 10 7 10 7a18.5 18.5 0 01-2.16 3.19"/><path d="M14.12 14.12a3 3 0 11-4.24-4.24"/><path d="M2 2l20 20"/></symbol>
+    <symbol id="i-shield-star" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M12 8l1.5 3.5L17 12l-2.5 2 1 3.5L12 15l-3.5 2.5 1-3.5L7 12l3.5-.5z"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-3-6.7L21 8"/><path d="M21 3v5h-5"/></symbol>
+</svg>
 <div class="bg-orbs" aria-hidden="true">
     <div class="orb orb--1"></div>
     <div class="orb orb--2"></div>
@@ -63,5 +76,6 @@
 {{$slot}}
 <script src="{{url('Panel/Auth/script.js')}}"></script>
 <script src="{{url('Panel/Auth/Login/script.js')}}"></script>
+<script src="{{url('Panel/ResetPassword/script.js')}}"></script>
 </body>
 </html>

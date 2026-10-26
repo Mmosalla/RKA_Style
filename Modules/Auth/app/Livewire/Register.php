@@ -16,6 +16,7 @@ use Modules\Auth\Services\OtpService;
 
 class Register extends Component
 {
+
     public $CodeMode;
 
     public string $username;

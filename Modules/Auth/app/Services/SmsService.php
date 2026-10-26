@@ -15,7 +15,7 @@ class SmsService
             $sms = Melipayamak::sms();
             $to = $mobile;
             $from = '50002710063484';
-            $text = '<strong>RKA STYLE</strong><br>برای تکمیل ثبت‌نام، کد زیر را وارد کنید:<br><strong>' . $code . '</strong>'; ;
+            $text = "بفرمایید کد تأیید شما در وبسایت آرکا:$code";
             $response = $sms->send($to,$from,$text);
             $json = json_decode($response);
             echo $json->Value; //RecId or Error Number
