@@ -9,10 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('Panel/Dashboard/style.css')}}">
     <link rel="stylesheet" href="{{asset('Panel/Category/style.css')}}">
     <link rel="stylesheet" href="{{asset('Panel/User/style.css')}}">
     <link rel="stylesheet" href="{{url('Panel/Loader/style.css')}}">
+    <link rel="stylesheet" href="{{url('Panel/Product/style.css')}}">
+    <link rel="stylesheet" href="{{url('Panel/Product/style2.css')}}">
     <link rel="icon" type="image/svg+xml" href="{{url('Favicon/favicon.svg')}}" />
 </head>
 <body>
@@ -103,5 +108,6 @@
 <script src="{{asset('Panel/Dashboard/script.js')}}"></script>
 <script src="{{asset('Panel/Category/script.js')}}"></script>
 <script src="{{asset('Panel/User/script.js')}}"></script>
+<script src="{{asset('Panel/Product/script.js')}}"></script>
 </body>
 </html>

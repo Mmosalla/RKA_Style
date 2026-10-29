@@ -5,6 +5,7 @@ namespace Modules\Category\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Modules\Product\Models\Product;
 
 // use Modules\Category\Database\Factories\CategoryFactory;
 
@@ -33,6 +34,11 @@ class Category extends Model
     {
         return $this->belongsTo(self::class , 'parent_id')
             ->withDefault(['title' => 'دسته بندی اصلی']);
+    }
+
+    public function Products()
+    {
+        return $this->hasMany(Product::class);
     }
 
     public static function getCategories()

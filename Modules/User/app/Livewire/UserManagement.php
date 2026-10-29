@@ -19,6 +19,8 @@ class UserManagement extends Component
 
     public $search;
 
+    protected $paginationTheme = 'bootstrap';
+
     #[Computed]
     public function usersList()
     {

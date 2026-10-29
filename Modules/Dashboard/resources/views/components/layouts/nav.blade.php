@@ -4,7 +4,7 @@
             <svg><use href="#i-home"/></svg>
             پیشخوان
         </a>
-        <a href="#" class="admin-nav__item">
+        <a href="{{route('admin.product_management')}}" class="admin-nav__item {{request()->routeIs('admin.product_management') ? 'is-active' : ''}}">
             <svg><use href="#i-package"/></svg>
             محصولات
         </a>

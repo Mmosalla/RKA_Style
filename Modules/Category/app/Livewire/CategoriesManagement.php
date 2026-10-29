@@ -73,7 +73,7 @@ class CategoriesManagement extends Component
     {
         $this->validate([
             'title' => 'required|unique:categories,title,' . $this->editIndex,
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,svg|max:4096',
             'parent_id' => 'nullable',
         ]);
         $category = Category::query()->findOrFail($this->editIndex);

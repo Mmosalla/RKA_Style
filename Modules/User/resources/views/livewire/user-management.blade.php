@@ -14,15 +14,15 @@
                 <div class="page-stats">
           <span class="page-stat">
             <span class="page-stat__dot page-stat__dot--active"></span>
-            فعال: <strong>{{$this->usersList->where('status', \Modules\Auth\Enums\UserStatusEnum::ACTIVE->value)->count}}</strong>
+            فعال: <strong>{{$this->usersList->where('status', \Modules\Auth\Enums\UserStatusEnum::ACTIVE->value)->count()}}</strong>
           </span>
                     <span class="page-stat">
             <span class="page-stat__dot page-stat__dot--inactive"></span>
-            غیرفعال: <strong>{{$this->usersList->where('status', \Modules\Auth\Enums\UserStatusEnum::INACTIVE->value)->count}}</strong>
+            غیرفعال: <strong>{{$this->usersList->where('status', \Modules\Auth\Enums\UserStatusEnum::INACTIVE->value)->count()}}</strong>
           </span>
                     <span class="page-stat">
             <span class="page-stat__dot page-stat__dot--banned"></span>
-            بن‌شده: <strong>{{$this->usersList->where('status', \Modules\Auth\Enums\UserStatusEnum::Banned)->count}}</strong>
+            بن‌شده: <strong>{{$this->usersList->where('status', \Modules\Auth\Enums\UserStatusEnum::Banned)->count()}}</strong>
           </span>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     aria-label="جستجو در مشتریان"
                 />
                 <span class="search-card__hint">
-          مجموع: <strong>{{$this->usersList->count()}} مشتری</strong>
+          مجموع: <strong>{{$this->usersList->count() }} مشتری</strong>
         </span>
             </div>
 
@@ -50,7 +50,7 @@
 
                 <header class="users-card__head">
                     <h2 class="users-card__title">لیست مشتریان</h2>
-                    <span class="users-card__count">{{$this->usersList->count()}} کاربر</span>
+                    <span class="users-card__count">{{$this->usersList->count() }} کاربر</span>
                 </header>
 
                 <div class="users-table-wrap">
@@ -69,7 +69,7 @@
                             <tr>
                                 <td>
                                     <div class="user-cell">
-                                        <div class="user-cell__avatar user-cell__avatar--1">ع</div>
+                                        <div class="user-cell__avatar user-cell__avatar--1">{{$user->username}}</div>
                                         <div class="user-cell__info">
                                             <div class="user-cell__name">{{$user->username}}</div>
                                             {{--                    <div class="user-cell__username">@ali_rezaei</div>--}}
