@@ -99,14 +99,8 @@
 
                         <!-- مرا به خاطر بسپار + فراموشی رمز -->
                         <div class="login-options">
-                            <label class="remember">
-                                <input type="checkbox" name="remember" />
-                                <span class="remember__box">
-                  <svg><use href="#i-check"/></svg>
-                </span>
-                                مرا به خاطر بسپار
-                            </label>
-                            <a href="#" class="forgot-link">فراموشی رمز؟</a>
+
+                            <a href="{{route('reset_password')}}" class="forgot-link">فراموشی رمز؟</a>
                         </div>
 
                         <!-- دکمه‌ی ورود -->
@@ -122,7 +116,7 @@
                     <!-- لینک ثبت‌نام -->
                     <p class="login-switch">
                         حساب ندارید؟
-                        <a href="{{route('auth.register')}}" data-modal="register">ثبت ‌نام کنید</a>
+                        <a href="{{route('register')}}" data-modal="register">ثبت ‌نام کنید</a>
                     </p>
                 </section>
 

@@ -192,7 +192,7 @@
                 <!-- لینک ورود -->
                 <p class="reg-switch">
                     قبلاً حساب دارید؟
-                    <a href="{{route('auth.login')}}" data-modal="login">وارد شوید</a>
+                    <a href="{{route('login')}}" data-modal="login">وارد شوید</a>
                 </p>
 
                 <!-- قوانین -->

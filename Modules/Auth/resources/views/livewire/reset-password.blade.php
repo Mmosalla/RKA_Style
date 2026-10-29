@@ -199,7 +199,7 @@
                 <!-- لینک بازگشت به ورود -->
                 <p class="reset-switch">
                     رمز عبورت را یادت آمد؟
-                    <a href="{{route('auth.login')}}" data-modal="login">وارد شوید</a>
+                    <a href="{{route('login')}}" data-modal="login">وارد شوید</a>
                 </p>
 
             </div>

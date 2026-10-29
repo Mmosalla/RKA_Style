@@ -7,15 +7,15 @@ use Modules\Auth\Livewire\ResetPassword;
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/register' , Register::class)
-        ->name('auth.register');
+        ->name('register');
     Route::get('/login' , Login::class)
-        ->name('auth.login');
+        ->name('login');
     Route::get('/reset_password' , ResetPassword::class)
-        ->name('auth.reset_password');
+        ->name('reset_password');
 });
 
 
 Route::middleware(['auth'])->get('/logout', function () {
     Auth::logout();
     return redirect('/');
-})->name('auth.logout');
+})->name('logout');
