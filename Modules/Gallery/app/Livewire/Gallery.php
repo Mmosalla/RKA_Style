@@ -3,6 +3,7 @@
 namespace Modules\Gallery\Livewire;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
@@ -56,8 +57,13 @@ class Gallery extends Component
     #[On('photo.delete')]
     public function delete($id)
     {
-        \Modules\Gallery\Models\Gallery::query()->find($id)->delete();
-    }
+        $image = \Modules\Gallery\Models\Gallery::query()->findOrFail($id);
+
+        if ($image->image && Storage::disk('public')->exists($image->image)) {
+            Storage::disk('public')->delete($image->image);
+        }
+
+        $image->delete();    }
 
     #[Layout('dashboard::components.layouts.master')]
     #[Title('مدیرت گالری محصول')]
