@@ -23,6 +23,7 @@ class ColorManagement extends Component
     {
         return Color::query()
             ->with('product')
+            ->where('product_id' , $this->product->id)
             ->paginate(10);
     }
 

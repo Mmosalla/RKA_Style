@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\Category\Models\Category;
 use Modules\Color\Models\Color;
+use Modules\Gallery\Models\Gallery;
 use Modules\Size\Models\Size;
 
 // use Modules\Product\Database\Factories\ProductFactory;
@@ -45,6 +46,11 @@ class Product extends Model
     public function sizes()
     {
         return $this->hasMany(Size::class);
+    }
+
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
     }
 
     // protected static function newFactory(): ProductFactory

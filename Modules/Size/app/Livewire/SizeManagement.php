@@ -25,6 +25,7 @@ class SizeManagement extends Component
     {
         return Size::query()
             ->with('product')
+            ->where('product_id' , $this->product->id)
             ->paginate(10);
     }
 

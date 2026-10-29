@@ -602,12 +602,12 @@
                                                         <use href="#i-ruler"/>
                                                     </svg>
                                                 </a>
-                                                <button class="icon-action icon-action--gallery" title="افزودن گالری"
+                                                <a href="{{route('admin.galley_management' , $product->id)}}" class="icon-action icon-action--gallery" title="افزودن گالری"
                                                         aria-label="افزودن گالری">
                                                     <svg>
                                                         <use href="#i-image"/>
                                                     </svg>
-                                                </button>
+                                                </a>
                                             </div>
                                             <div class="action-bucket">
                                                 <button class="icon-action icon-action--show" title="نمایش محصول"

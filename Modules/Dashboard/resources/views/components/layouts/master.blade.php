@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('Panel/Size/style.css')}}">
     <link rel="stylesheet" href="{{asset('Panel/Category/style.css')}}">
     <link rel="stylesheet" href="{{asset('Panel/User/style.css')}}">
+    <link rel="stylesheet" href="{{asset('Panel/Gallery/style.css')}}">
     <link rel="stylesheet" href="{{asset('Panel/color/style.css')}}">
     <link rel="stylesheet" href="{{url('Panel/Loader/style.css')}}">
     <link rel="stylesheet" href="{{url('Panel/Product/style.css')}}">
@@ -113,5 +114,6 @@
 <script src="{{asset('Panel/Product/script.js')}}"></script>
 <script src="{{asset('Panel/color/script.js')}}"></script>
 <script src="{{asset('Panel/size/script.js')}}"></script>
+<script src="{{asset('Panel/Gallery/script.js')}}"></script>
 </body>
 </html>
