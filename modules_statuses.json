@@ -4,5 +4,7 @@
     "Category": true,
     "User": true,
     "Product": true,
-    "Color": true
+    "Color": true,
+    "Size": true,
+    "Gallery": true
 }

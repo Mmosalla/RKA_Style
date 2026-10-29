@@ -596,12 +596,12 @@
                                                         <use href="#i-palette"/>
                                                     </svg>
                                                 </a>
-                                                <button class="icon-action icon-action--size" title="افزودن سایز"
+                                                <a href="{{route('admin.size_management' , $product->id)}}" class="icon-action icon-action--size" title="افزودن سایز"
                                                         aria-label="افزودن سایز">
                                                     <svg>
                                                         <use href="#i-ruler"/>
                                                     </svg>
-                                                </button>
+                                                </a>
                                                 <button class="icon-action icon-action--gallery" title="افزودن گالری"
                                                         aria-label="افزودن گالری">
                                                     <svg>
