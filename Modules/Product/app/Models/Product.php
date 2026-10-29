@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\Category\Models\Category;
+use Modules\Color\Models\Color;
 
 // use Modules\Product\Database\Factories\ProductFactory;
 
@@ -33,6 +34,11 @@ class Product extends Model
     public function Category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function colors()
+    {
+        return $this->hasMany(Color::class);
     }
 
     // protected static function newFactory(): ProductFactory

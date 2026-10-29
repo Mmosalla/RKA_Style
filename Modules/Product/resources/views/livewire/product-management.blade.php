@@ -590,12 +590,12 @@
                                     <td>
                                         <div class="action-group">
                                             <div class="action-bucket">
-                                                <button class="icon-action icon-action--color" title="افزودن رنگ"
+                                                <a  href="{{route('admin.color_management' , $product->id)}}" class="icon-action icon-action--color" title="افزودن رنگ"
                                                         aria-label="افزودن رنگ">
                                                     <svg>
                                                         <use href="#i-palette"/>
                                                     </svg>
-                                                </button>
+                                                </a>
                                                 <button class="icon-action icon-action--size" title="افزودن سایز"
                                                         aria-label="افزودن سایز">
                                                     <svg>

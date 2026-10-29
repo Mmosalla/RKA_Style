@@ -3,5 +3,6 @@
     "Dashboard": true,
     "Category": true,
     "User": true,
-    "Product": true
+    "Product": true,
+    "Color": true
 }

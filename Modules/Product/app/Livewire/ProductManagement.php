@@ -144,7 +144,6 @@ class ProductManagement extends Component
     {
         $this->ProductList = Product::query()
             ->where('title', 'like', '%' . $this->search . '%')
-            ->orWhere('category_id', 'like', '%' . $this->search . '%')
             ->paginate(10);
     }
 
