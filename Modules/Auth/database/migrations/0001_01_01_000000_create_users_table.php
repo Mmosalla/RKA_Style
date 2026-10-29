@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('mobile')->unique();
             $table->timestamp('mobile_verified_at')->nullable();
             $table->string('password');
+            $table->string('status')->default(\Modules\Auth\Enums\UserStatusEnum::ACTIVE->value);
             $table->rememberToken();
             $table->timestamps();
         });

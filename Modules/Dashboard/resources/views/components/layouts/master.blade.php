@@ -11,6 +11,7 @@
           rel="stylesheet"/>
     <link rel="stylesheet" href="{{asset('Panel/Dashboard/style.css')}}">
     <link rel="stylesheet" href="{{asset('Panel/Category/style.css')}}">
+    <link rel="stylesheet" href="{{asset('Panel/User/style.css')}}">
     <link rel="stylesheet" href="{{url('Panel/Loader/style.css')}}">
     <link rel="icon" type="image/svg+xml" href="{{url('Favicon/favicon.svg')}}" />
 </head>
@@ -101,5 +102,6 @@
 {{$slot}}
 <script src="{{asset('Panel/Dashboard/script.js')}}"></script>
 <script src="{{asset('Panel/Category/script.js')}}"></script>
+<script src="{{asset('Panel/User/script.js')}}"></script>
 </body>
 </html>

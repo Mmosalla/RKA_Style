@@ -1,5 +1,6 @@
 {
     "Auth": true,
     "Dashboard": true,
-    "Category": true
+    "Category": true,
+    "User": true
 }

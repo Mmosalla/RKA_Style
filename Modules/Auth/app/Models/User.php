@@ -14,7 +14,8 @@ use Illuminate\Notifications\Notifiable;
     'username',
     'mobile',
     'mobile_verified_at',
-    'password'
+    'password',
+    'status',
 ])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
