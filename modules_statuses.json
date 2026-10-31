@@ -7,5 +7,7 @@
     "Color": true,
     "Size": true,
     "Gallery": true,
-    "Home": true
+    "Home": true,
+    "AllProduct": true,
+    "SingleProduct": true
 }

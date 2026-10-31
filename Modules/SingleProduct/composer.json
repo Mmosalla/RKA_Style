@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/singleproduct",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\SingleProduct\\": "app/",
+            "Modules\\SingleProduct\\Database\\Factories\\": "database/factories/",
+            "Modules\\SingleProduct\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\SingleProduct\\Tests\\": "tests/"
+        }
+    }
+}

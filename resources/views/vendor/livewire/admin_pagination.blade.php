@@ -17,7 +17,7 @@
 
 <div>
     @if ($paginator->hasPages())
-        <nav class="pagination" aria-label="صفحه‌بندی دسته‌بندی‌ها">
+        <nav class="pagination" aria-label="صفحه‌بندی ">
 
             <div class="pagination__info">
                 نمایش

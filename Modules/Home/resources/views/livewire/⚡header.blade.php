@@ -15,7 +15,7 @@ new class extends Component
 
             <nav class="header-nav">
                 <button class="header-nav__item header-nav__item--categories" id="categoriesTrigger" aria-haspopup="true" aria-expanded="false">دسته‌بندی</button>
-                <a href="#products" class="header-nav__item">محصولات</a>
+                <a href="{{route('all_product')}}" class="header-nav__item">محصولات</a>
             </nav>
 
             <div class="header-brand">
