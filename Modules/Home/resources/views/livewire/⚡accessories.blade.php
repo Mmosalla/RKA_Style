@@ -1,10 +1,37 @@
 <?php
 
+use Livewire\Attributes\Computed;
 use Livewire\Component;
+use Modules\Category\Models\Category;
+use Modules\Product\Enums\ProductStatusEnum;
+use Modules\Product\Models\Product;
 
-new class extends Component
-{
-    //
+new class extends Component {
+    #[Computed]
+    public function accessoryProducts()
+    {
+        $accessory = Category::query()
+            ->where('title', 'اکسسوری')
+            ->with('childCategory.childCategory')
+            ->firstOrFail();
+
+        $accessoryIds = collect([$accessory->id]);
+
+        foreach ($accessory->childCategory as $child) {
+            $accessoryIds->push($child->id);
+
+            foreach ($child->childCategory as $subChild) {
+                $accessoryIds->push($subChild->id);
+            }
+        }
+
+        return Product::query()
+            ->where('status', \Modules\Product\Enums\ProductStatusEnum::ACTIVE->value)
+            ->whereIn('category_id', $accessoryIds)
+            ->with('category')
+            ->take(10)
+            ->get();
+    }
 };
 ?>
 
@@ -12,28 +39,68 @@ new class extends Component
     <section class="products-section">
         <div class="container">
             <header class="section-header">
-                <h2 class="section-header__title">اکسسوری‌ها</h2>
+                <h2 class="section-header__title">اکسسوری</h2>
                 <a href="#" class="section-header__link">مشاهده همه ←</a>
             </header>
             <div class="products-row">
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-watch"/></svg><span class="product-card__badge">جدید</span></div><div class="product-card__body"><span class="product-card__cat">ساعت</span><h3 class="product-card__title">ساعت هوشمند</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۳,۲۰۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-glasses"/></svg><span class="discount-badge discount-badge--mid">۲۰٪</span></div><div class="product-card__body"><span class="product-card__cat">عینک</span><h3 class="product-card__title">عینک ری‌بن</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۱,۴۵۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۱,۱۵۹,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-belt"/></svg></div><div class="product-card__body"><span class="product-card__cat">کمربند</span><h3 class="product-card__title">کمربند چرم</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۴۲۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-bag"/></svg><span class="product-card__badge">ویژه</span><span class="discount-badge discount-badge--high">۳۰٪</span></div><div class="product-card__body"><span class="product-card__cat">کیف</span><h3 class="product-card__title">کیف اداری</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۱,۲۰۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۸۴۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-sock"/></svg></div><div class="product-card__body"><span class="product-card__cat">جوراب</span><h3 class="product-card__title">جوراب پنبه‌ای</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۸۵,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-hat"/></svg></div><div class="product-card__body"><span class="product-card__cat">کلاه</span><h3 class="product-card__title">کلاه زمستانی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۳۲۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-belt"/></svg><span class="product-card__badge">جدید</span><span class="discount-badge discount-badge--low">۱۵٪</span></div><div class="product-card__body"><span class="product-card__cat">دستکش</span><h3 class="product-card__title">دستکش چرمی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۳۸۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۳۲۳,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-sock"/></svg></div><div class="product-card__body"><span class="product-card__cat">شال</span><h3 class="product-card__title">شال گردن</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۲۹۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-            </div>
-            <div class="products-row">
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-sock"/></svg></div><div class="product-card__body"><span class="product-card__cat">شال</span><h3 class="product-card__title">شال گردن</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۲۹۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-belt"/></svg><span class="product-card__badge">جدید</span><span class="discount-badge discount-badge--low">۱۵٪</span></div><div class="product-card__body"><span class="product-card__cat">دستکش</span><h3 class="product-card__title">دستکش چرمی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۳۸۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۳۲۳,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-hat"/></svg></div><div class="product-card__body"><span class="product-card__cat">کلاه</span><h3 class="product-card__title">کلاه زمستانی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۳۲۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-sock"/></svg></div><div class="product-card__body"><span class="product-card__cat">جوراب</span><h3 class="product-card__title">جوراب پنبه‌ای</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۸۵,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-bag"/></svg><span class="product-card__badge">ویژه</span><span class="discount-badge discount-badge--high">۳۰٪</span></div><div class="product-card__body"><span class="product-card__cat">کیف</span><h3 class="product-card__title">کیف اداری</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۱,۲۰۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۸۴۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-belt"/></svg></div><div class="product-card__body"><span class="product-card__cat">کمربند</span><h3 class="product-card__title">کمربند چرم</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۴۲۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-glasses"/></svg><span class="discount-badge discount-badge--mid">۲۰٪</span></div><div class="product-card__body"><span class="product-card__cat">عینک</span><h3 class="product-card__title">عینک ری‌بن</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۱,۴۵۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۱,۱۵۹,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-watch"/></svg><span class="product-card__badge">جدید</span></div><div class="product-card__body"><span class="product-card__cat">ساعت</span><h3 class="product-card__title">ساعت هوشمند</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۳,۲۰۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
+                @forelse($this->accessoryProducts as $product)
+                    <article class="product-card">
+                        <div class="product-card__media">
+                            <svg>
+                                <img src="{{asset('Images/Products/' . $product->main_image)}}" alt="{{$product->slug}}">
+                            </svg>
+                            @if($product->discount)
+                                <span class="product-card__badge">تخفیف</span><span
+                                    class="discount-badge discount-badge--low">{{$product->discount}}٪</span>
+                            @endif
+                        </div>
+                        <div class="product-card__body"><span
+                                class="product-card__cat">{{$product->category->title}}</span>
+                            <h3 class="product-card__title">{{$product->title}}</h3>
+                            <div class="product-card__footer">
+                                @if($product->discount > 0)
+
+                                    <div class="product-card__prices">
+
+                                        <span class="product-card__price-old">
+                                            {{ number_format($product->price) }}
+                                        </span>
+
+                                        <span class="product-card__price-new product-card__price-new--discounted">
+                                            {{ number_format(
+                                                (new \Modules\Home\Services\MainPericeService())
+                                                    ->getPrice($product->price, $product->discount)
+                                            ) }}
+                                            <small>ت</small>
+                                        </span>
+
+                                    </div>
+
+                                @else
+
+                                    <div class="product-card__prices">
+
+                                        <span class="product-card__price-new">
+                                            {{ number_format($product->price) }}
+                                            <small>ت</small>
+                                        </span>
+
+                                    </div>
+
+                                @endif
+                                <button class="product-card__add" aria-label="افزودن">
+                                    <svg>
+                                        <use href="#i-plus"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                @empty
+                    <div class="products-row">
+
+                    </div>
+                @endforelse
             </div>
             <div class="section-cta"><a href="#" class="btn">مشاهده بیشتر</a></div>
         </div>

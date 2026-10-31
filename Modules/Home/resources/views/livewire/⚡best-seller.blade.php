@@ -1,41 +1,129 @@
 <?php
 
+use Livewire\Attributes\Computed;
 use Livewire\Component;
+use Modules\Product\Models\Product;
 
-new class extends Component
-{
-    //
+new class extends Component {
+    #[Computed]
+    public function bestSellerProducts()
+    {
+        return Product::query()
+            ->where('status', \Modules\Product\Enums\ProductStatusEnum::ACTIVE->value)
+            ->with('category')
+            ->orderByDesc('sold')
+            ->take(10)
+            ->get();
+    }
 };
 ?>
 
 <div>
     <section class="products-section">
         <div class="container">
+
             <header class="section-header">
                 <h2 class="section-header__title">پرفروش‌ترین‌ها</h2>
                 <a href="#" class="section-header__link">مشاهده همه ←</a>
             </header>
+
             <div class="products-row">
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-shoe"/></svg><span class="product-card__badge">پرفروش</span><span class="discount-badge discount-badge--high">۳۰٪</span></div><div class="product-card__body"><span class="product-card__cat">کفش</span><h3 class="product-card__title">کفش چرم کلاسیک</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۱,۴۸۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۱,۰۳۶,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-hat"/></svg><span class="product-card__badge">پرفروش</span><span class="discount-badge discount-badge--low">۱۵٪</span></div><div class="product-card__body"><span class="product-card__cat">کلاه</span><h3 class="product-card__title">کلاه بیسبالی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۲۲۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۱۸۷,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-bag"/></svg></div><div class="product-card__body"><span class="product-card__cat">کیف</span><h3 class="product-card__title">کیف چرم دستی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۸۵۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-watch"/></svg><span class="product-card__badge">ویژه</span><span class="discount-badge discount-badge--mid">۲۰٪</span></div><div class="product-card__body"><span class="product-card__cat">ساعت</span><h3 class="product-card__title">ساعت مچی کلاسیک</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۲,۳۰۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۱,۸۴۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-glasses"/></svg><span class="discount-badge discount-badge--low">۱۵٪</span></div><div class="product-card__body"><span class="product-card__cat">عینک</span><h3 class="product-card__title">عینک آفتابی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۶۵۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۵۵۲,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-belt"/></svg></div><div class="product-card__body"><span class="product-card__cat">کمربند</span><h3 class="product-card__title">کمربند چرمی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۳۸۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-shoe"/></svg><span class="product-card__badge">پرفروش</span><span class="discount-badge discount-badge--mid">۲۵٪</span></div><div class="product-card__body"><span class="product-card__cat">کفش</span><h3 class="product-card__title">کفش اسنیکر</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۱,۱۰۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۸۲۵,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-hat"/></svg></div><div class="product-card__body"><span class="product-card__cat">کلاه</span><h3 class="product-card__title">کلاه نمدی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۴۵۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
+
+                @forelse($this->bestSellerProducts as $product)
+
+                    <article class="product-card">
+
+                        <div class="product-card__media">
+
+                            <img
+                                src="{{ asset('Images/Products/' . $product->main_image) }}"
+                                alt="{{ $product->slug }}"
+                            >
+
+                            <span class="product-card__badge">
+                                پرفروش
+                            </span>
+
+                            @if($product->discount > 0)
+                                <span class="discount-badge discount-badge--high">
+                                    {{ $product->discount }}٪
+                                </span>
+                            @endif
+
+                        </div>
+
+                        <div class="product-card__body">
+
+                            <span class="product-card__cat">
+                                {{ $product->category->title }}
+                            </span>
+
+                            <h3 class="product-card__title">
+                                {{ $product->title }}
+                            </h3>
+
+                            <div class="product-card__footer">
+
+                                @if($product->discount > 0)
+
+                                    <div class="product-card__prices">
+
+                                        <span class="product-card__price-old">
+                                            {{ number_format($product->price) }}
+                                        </span>
+
+                                        <span class="product-card__price-new product-card__price-new--discounted">
+                                            {{ number_format(
+                                                (new \Modules\Home\Services\MainPericeService())
+                                                    ->getPrice($product->price, $product->discount)
+                                            ) }}
+                                            <small>ت</small>
+                                        </span>
+
+                                    </div>
+
+                                @else
+
+                                    <div class="product-card__prices">
+
+                                        <span class="product-card__price-new">
+                                            {{ number_format($product->price) }}
+                                            <small>ت</small>
+                                        </span>
+
+                                    </div>
+
+                                @endif
+
+                                <button
+                                    class="product-card__add"
+                                    aria-label="افزودن"
+                                >
+                                    <svg>
+                                        <use href="#i-plus"/>
+                                    </svg>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                @empty
+
+                    <div class="products-row">
+                        <p>محصولی برای نمایش وجود ندارد.</p>
+                    </div>
+
+                @endforelse
+
             </div>
-            <div class="products-row">
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-hat"/></svg></div><div class="product-card__body"><span class="product-card__cat">کلاه</span><h3 class="product-card__title">کلاه نمدی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۴۵۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-shoe"/></svg><span class="product-card__badge">پرفروش</span><span class="discount-badge discount-badge--mid">۲۵٪</span></div><div class="product-card__body"><span class="product-card__cat">کفش</span><h3 class="product-card__title">کفش اسنیکر</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۱,۱۰۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۸۲۵,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-belt"/></svg></div><div class="product-card__body"><span class="product-card__cat">کمربند</span><h3 class="product-card__title">کمربند چرمی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۳۸۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-glasses"/></svg><span class="discount-badge discount-badge--low">۱۵٪</span></div><div class="product-card__body"><span class="product-card__cat">عینک</span><h3 class="product-card__title">عینک آفتابی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۶۵۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۵۵۲,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-watch"/></svg><span class="product-card__badge">ویژه</span><span class="discount-badge discount-badge--mid">۲۰٪</span></div><div class="product-card__body"><span class="product-card__cat">ساعت</span><h3 class="product-card__title">ساعت مچی کلاسیک</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۲,۳۰۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۱,۸۴۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-bag"/></svg></div><div class="product-card__body"><span class="product-card__cat">کیف</span><h3 class="product-card__title">کیف چرم دستی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۸۵۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-hat"/></svg><span class="product-card__badge">پرفروش</span><span class="discount-badge discount-badge--low">۱۵٪</span></div><div class="product-card__body"><span class="product-card__cat">کلاه</span><h3 class="product-card__title">کلاه بیسبالی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۲۲۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۱۸۷,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-shoe"/></svg><span class="product-card__badge">پرفروش</span><span class="discount-badge discount-badge--high">۳۰٪</span></div><div class="product-card__body"><span class="product-card__cat">کفش</span><h3 class="product-card__title">کفش چرم کلاسیک</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۱,۴۸۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۱,۰۳۶,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
+
+            <div class="section-cta">
+                <a href="#" class="btn">مشاهده بیشتر</a>
             </div>
-            <div class="section-cta"><a href="#" class="btn">مشاهده بیشتر</a></div>
+
         </div>
     </section>
 </div>

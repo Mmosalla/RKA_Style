@@ -1,10 +1,25 @@
 <?php
 
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
+use Livewire\Attributes\Computed;
+use Modules\Product\Models\Product;
 
-new class extends Component
-{
-    //
+
+new class extends Component {
+    #[Computed]
+    public function newProducts()
+    {
+        return
+            Product::query()
+                ->where('status', \Modules\Product\Enums\ProductStatusEnum::ACTIVE->value)
+                ->with('Category')
+                ->latest()
+                ->take(8)
+                ->get();
+
+    }
+
 };
 ?>
 
@@ -16,24 +31,54 @@ new class extends Component
                 <a href="#" class="section-header__link">مشاهده همه ←</a>
             </header>
             <div class="products-row" id="row-new-1">
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-shirt"/></svg><span class="product-card__badge">جدید</span><span class="discount-badge discount-badge--mid">۱۸٪</span></div><div class="product-card__body"><span class="product-card__cat">پیراهن</span><h3 class="product-card__title">پیراهن کتان کرم</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۴۸۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۳۹۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-pants"/></svg><span class="product-card__badge">جدید</span></div><div class="product-card__body"><span class="product-card__cat">شلوار</span><h3 class="product-card__title">شلوار جین آبی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۶۵۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-tshirt"/></svg><span class="discount-badge discount-badge--low">۱۵٪</span></div><div class="product-card__body"><span class="product-card__cat">تی‌شرت</span><h3 class="product-card__title">تی‌شرت پنبه‌ای</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۳۲۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۲۷۲,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-jacket"/></svg><span class="discount-badge discount-badge--high">۳۰٪</span></div><div class="product-card__body"><span class="product-card__cat">کت</span><h3 class="product-card__title">کت تک سرمه‌ای</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۱,۲۵۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۸۷۵,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-jacket"/></svg></div><div class="product-card__body"><span class="product-card__cat">کاپشن</span><h3 class="product-card__title">کاپشن بادگیر</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۹۸۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-pants"/></svg></div><div class="product-card__body"><span class="product-card__cat">شلوار</span><h3 class="product-card__title">شلوار پارچه‌ای</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۵۴۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-shirt"/></svg><span class="discount-badge discount-badge--low">۱۵٪</span></div><div class="product-card__body"><span class="product-card__cat">پیراهن</span><h3 class="product-card__title">پیراهن آستین‌بلند</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۵۲۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۴۴۲,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-tshirt"/></svg></div><div class="product-card__body"><span class="product-card__cat">تی‌شرت</span><h3 class="product-card__title">تی‌شرت یقه‌گرد</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۲۸۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-            </div>
-            <div class="products-row" id="row-new-2">
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-tshirt"/></svg></div><div class="product-card__body"><span class="product-card__cat">تی‌شرت</span><h3 class="product-card__title">تی‌شرت یقه‌گرد</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۲۸۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-shirt"/></svg><span class="discount-badge discount-badge--low">۱۵٪</span></div><div class="product-card__body"><span class="product-card__cat">پیراهن</span><h3 class="product-card__title">پیراهن آستین‌بلند</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۵۲۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۴۴۲,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-pants"/></svg></div><div class="product-card__body"><span class="product-card__cat">شلوار</span><h3 class="product-card__title">شلوار پارچه‌ای</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۵۴۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-jacket"/></svg></div><div class="product-card__body"><span class="product-card__cat">کاپشن</span><h3 class="product-card__title">کاپشن بادگیر</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۹۸۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-jacket"/></svg><span class="discount-badge discount-badge--high">۳۰٪</span></div><div class="product-card__body"><span class="product-card__cat">کت</span><h3 class="product-card__title">کت تک سرمه‌ای</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۱,۲۵۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۸۷۵,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-tshirt"/></svg><span class="discount-badge discount-badge--low">۱۵٪</span></div><div class="product-card__body"><span class="product-card__cat">تی‌شرت</span><h3 class="product-card__title">تی‌شرت پنبه‌ای</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۳۲۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۲۷۲,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-pants"/></svg><span class="product-card__badge">جدید</span></div><div class="product-card__body"><span class="product-card__cat">شلوار</span><h3 class="product-card__title">شلوار جین آبی</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-new">۶۵۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
-                <article class="product-card"><div class="product-card__media"><svg><use href="#i-shirt"/></svg><span class="product-card__badge">جدید</span><span class="discount-badge discount-badge--mid">۱۸٪</span></div><div class="product-card__body"><span class="product-card__cat">پیراهن</span><h3 class="product-card__title">پیراهن کتان کرم</h3><div class="product-card__footer"><div class="product-card__prices"><span class="product-card__price-old">۴۸۰,۰۰۰</span><span class="product-card__price-new product-card__price-new--discounted">۳۹۰,۰۰۰<small> ت</small></span></div><button class="product-card__add" aria-label="افزودن"><svg><use href="#i-plus"/></svg></button></div></div></article>
+                @forelse($this->newProducts as $product)
+                    <article class="product-card">
+                        <div class="product-card__media">
+                            <img src="{{asset('Images/Products/' . $product->main_image)}}" alt="{{$product->slug}}">
+                            @if($product->discount > 0)
+                                <span class="product-card__badge">جدید</span><span
+                                    class="discount-badge discount-badge--mid">{{$product->discount}}٪</span>
+                            @endif
+                        </div>
+                        <div class="product-card__body"><span
+                                class="product-card__cat">{{$product->category->title}}</span>
+                            <h3 class="product-card__title">{{$product->title}}</h3>
+                            @if($product->discount > 0)
+                                <div class="product-card__footer">
+                                    <div class="product-card__prices"><span
+                                            class="product-card__price-old">{{number_format($product->price)}}</span><span
+
+                                        ></span>
+                                        <span class="product-card__price-new product-card__price-new--discounted">
+                                       {{ number_format(
+        (new \Modules\Home\Services\MainPericeService())
+            ->getPrice($product->price, $product->discount)
+    ) }}<small>ت</small>
+                                    </span></div>
+                                    <button class="product-card__add" aria-label="افزودن">
+                                        <svg>
+                                            <use href="#i-plus"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            @else
+                                <div class="product-card__footer">
+                                    <div class="product-card__prices">
+                                        <span class="product-card__price-new product-card__price-new--discounted">{{number_format($product->price)}}<small>ت</small>
+                                    </span></div>
+                                    <button class="product-card__add" aria-label="افزودن">
+                                        <svg>
+                                            <use href="#i-plus"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            @endif
+                        </div>
+                    </article>
+                @empty
+                    <div class="products-row" id="row-new-1">
+                    </div>
+                @endforelse
             </div>
             <div class="section-cta"><a href="#" class="btn">مشاهده بیشتر</a></div>
         </div>
