@@ -36,7 +36,8 @@ return [
 
         'array' => [
             'driver' => 'array',
-            'serialize' => false,
+            'serialize' =>
+                false,
         ],
 
         'database' => [
@@ -118,7 +119,7 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')).'-cache-'),
+    'prefix' => env('CACHE_PREFIX', Str::slug((string)env('APP_NAME', 'laravel')) . '-cache-'),
 
     /*
     |--------------------------------------------------------------------------
@@ -131,6 +132,10 @@ return [
     |
     */
 
-    'serializable_classes' => false,
+    'serializable_classes' =>
+        [
+            \Modules\Product\Models\Product::class,
+            \Modules\Category\Models\Category::class,
+        ],
 
 ];

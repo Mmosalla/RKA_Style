@@ -6,5 +6,6 @@
     "Product": true,
     "Color": true,
     "Size": true,
-    "Gallery": true
+    "Gallery": true,
+    "Home": true
 }

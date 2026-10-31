@@ -3,6 +3,7 @@
 namespace Modules\Category\Livewire;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
@@ -43,22 +44,25 @@ class CategoriesManagement extends Component
 
         $this->validate([
             'title' => 'required|unique:categories,title',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,svg|max:20048',
+            'image' => 'nullable',
             'parent_id' => 'nullable',
         ]);
-        $image_name = null;
-        if ($this->image) {
-            $image_name = $this->image->hashName();
-            $this->image->storeAs('Images/Categories', $image_name, 'public');
-        }
-        Category::query()
+//        $image_name = null;
+//        if ($this->image) {
+//            $image_name = $this->image->hashName();
+//            $this->image->storeAs('Images/Categories', $image_name, 'public');
+//        }
+         $category = Category::query()
             ->create([
                 'title' => $this->title,
-                'image' => $image_name,
+                'image' => $this->image,
                 'parent_id' => $this->parent_id,
                 'slug' => make_slug($this->title),
             ]);
         $this->dispatch('category.created');
+        if ((int) $category->parent_id === 0) {
+            Cache::forget('category.parent_categories');
+        }
         $this->reset(['title', 'image', 'parent_id']);
     }
     public function editRow($id): void
@@ -67,27 +71,33 @@ class CategoriesManagement extends Component
         $this->editIndex = $id;
         $this->title = $category->title;
         $this->parent_id = $category->parent_id;
+        $this->image = $category->image;
     }
 
     public function updateRow(): void
     {
         $this->validate([
             'title' => 'required|unique:categories,title,' . $this->editIndex,
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,svg|max:4096',
+            'image' => 'nullable|',
             'parent_id' => 'nullable',
         ]);
         $category = Category::query()->findOrFail($this->editIndex);
-        if ($this->image) {
-            $image_name = $this->image->hashName();
-            $this->image->storeAs('Images/Categories', $image_name, 'public');
-        }
+        $oldParentId = (int) $category->parent_id;
+//        if ($this->image) {
+//            $image_name = $this->image;
+//            $this->image->storeAs('Images/Categories', $image_name, 'public');
+//        }
         $category->update([
             'title' => $this->title,
             'slug' => make_slug($this->title),
             'parent_id' => $this->parent_id,
-            'image' => $this->image ? $image_name : $category->image,
+            'image' => $this->image ? $this->image: $category->image,
         ]);
         $this->dispatch('category.updated');
+        $newParentId = (int) $category->parent_id;
+        if ($oldParentId === 0 || $newParentId === 0) {
+            Cache::forget('category.parent_categories');
+        }
         $this->reset(['title', 'image', 'parent_id', 'editIndex']);
     }
     #[On('category.delete')]

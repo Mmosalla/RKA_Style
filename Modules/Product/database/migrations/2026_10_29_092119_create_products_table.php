@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('main_image');
             $table->unsignedBigInteger('price');
             $table->string('discount')->default(0);
-            $table->foreignId('category_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->string('status')->default(ProductStatusEnum::INACTIVE->value);
             $table->string('viewed')->default(0);
             $table->string('sold')->default(0);
