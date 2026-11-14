@@ -182,3 +182,128 @@ const Noty = (function() {
         }),
     };
 })();
+
+
+
+const NotyCart = (function() {
+    'use strict';
+
+    let counter = 0;
+
+    function cart(options = {}) {
+        const {
+            title = 'به سبد اضافه شد',
+            productName = '',
+            price = '',
+            quantity = 1,
+            badgeText = null,
+            duration = 4000,
+        } = options;
+
+        // حذف قبلی (اگر وجود داشت)
+        const existing = document.querySelector('.noty-cart.is-visible');
+        if (existing) {
+            existing.classList.remove('is-visible');
+            existing.classList.add('is-closing');
+            setTimeout(() => existing.remove(), 400);
+        }
+
+        // ID یکتا برای SVG defs
+        const uid = 'notycart-' + (++counter) + '-' + Math.random().toString(36).slice(2, 6);
+
+        // متن بج: پیش‌فرض +N، یا badgeText دلخواه
+        const finalBadge = badgeText != null ? badgeText : '+' + quantity;
+
+        // المان اصلی
+        const el = document.createElement('div');
+        el.className = 'noty-cart';
+        el.setAttribute('role', 'status');
+        el.setAttribute('aria-live', 'polite');
+        el.innerHTML = `
+          <div class="noty-cart__inner" style="--noty-duration: ${duration}ms">
+            <div class="noty-cart__shimmer"></div>
+
+            <div class="noty-cart__icon-wrap">
+              <svg class="noty-cart__svg" viewBox="0 0 80 80" aria-hidden="true">
+                <defs>
+                  <clipPath id="${uid}-clip">
+                    <path d="M 18 28 L 62 28 L 55 52 L 25 52 Z"/>
+                  </clipPath>
+                  <linearGradient id="${uid}-grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#F4E9C8"/>
+                    <stop offset="100%" stop-color="#C6A758"/>
+                  </linearGradient>
+                </defs>
+
+                <g class="noty-cart__cart-icon">
+                  <!-- پس‌زمینه‌ی داخل سبد -->
+                  <path d="M 18 28 L 62 28 L 55 52 L 25 52 Z" fill="rgba(31,42,68,0.5)"/>
+
+                  <!-- محصول (clip شده به داخل سبد) -->
+                  <g clip-path="url(#${uid}-clip)">
+                    <g class="noty-cart__product">
+                      <rect x="36" y="32" width="14" height="14" rx="2.5" fill="url(#${uid}-grad)"/>
+                      <path d="M 38 35 L 48 35" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    </g>
+                  </g>
+
+                  <!-- بدنه‌ی سبد (روی محصول) -->
+                  <path d="M 18 28 L 62 28 L 55 52 L 25 52 Z"
+                        fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+
+                  <!-- چرخ‌ها -->
+                  <circle cx="30" cy="60" r="4" fill="none" stroke="currentColor" stroke-width="2.4"/>
+                  <circle cx="52" cy="60" r="4" fill="none" stroke="currentColor" stroke-width="2.4"/>
+
+                  <!-- دسته -->
+                  <path d="M 8 14 L 18 28" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                </g>
+              </svg>
+
+              <span class="noty-cart__badge">${finalBadge}</span>
+            </div>
+
+            <div class="noty-cart__content">
+              <div class="noty-cart__title">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12l5 5L20 7"/>
+                </svg>
+                ${title}
+              </div>
+              ${productName ? `<div class="noty-cart__product-name">${productName}</div>` : ''}
+              <div class="noty-cart__meta">
+                <span class="noty-cart__qty">${quantity} عدد</span>
+                ${price ? `<span class="noty-cart__price">${price}<small> تومان</small></span>` : ''}
+              </div>
+            </div>
+
+            <button type="button" class="noty-cart__close" aria-label="بستن">×</button>
+
+            <div class="noty-cart__progress" style="--noty-duration: ${duration}ms"></div>
+          </div>
+        `;
+
+        document.body.appendChild(el);
+        requestAnimationFrame(() => el.classList.add('is-visible'));
+
+        // بستن
+        let closed = false;
+        const close = () => {
+            if (closed) return;
+            closed = true;
+            el.classList.remove('is-visible');
+            el.classList.add('is-closing');
+            setTimeout(() => el.remove(), 400);
+        };
+
+        const timer = setTimeout(close, duration);
+        el.querySelector('.noty-cart__close').addEventListener('click', () => {
+            clearTimeout(timer);
+            close();
+        });
+
+        return { close };
+    }
+
+    return { cart };
+})();

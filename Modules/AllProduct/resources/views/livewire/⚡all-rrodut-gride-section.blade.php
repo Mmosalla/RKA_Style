@@ -42,7 +42,7 @@ new class extends Component {
                     <article class="product-card">
                         <div class="product-card__media">
                             <svg>
-                                <img src="{{asset('Images/Products' . $product->main_image)}}" alt="{{$product->slug}}">
+                                <img src="{{asset('Images/Products/' . $product->main_image)}}" alt="{{$product->slug}}">
                             </svg>
                             <span class="product-card__badge">جدید</span>
                             @if($product->discount)
@@ -54,7 +54,7 @@ new class extends Component {
                             <h3 class="product-card__title">{{$product->title}}</h3>
                             <div class="product-card__footer">
                                 @if($product->discount)
-                                    <div class="product-card__prices"><span class="product-card__price-old">{{number_format($product->discount)}}</span><span
+                                    <div class="product-card__prices"><span class="product-card__price-old">{{number_format($product->price)}}</span><span
                                             class="product-card__price-new product-card__price-new--discounted">{{ number_format(
     (new \Modules\Home\Services\MainPericeService())
         ->getPrice($product->price, $product->discount)
@@ -68,11 +68,11 @@ new class extends Component {
                                 @endif
 
 
-                                <button class="product-card__add" aria-label="افزودن">
+                                <a href="{{route('single.product' , ['product' => $product->id , 'slug' => $product->slug])}}" class="product-card__add" aria-label="افزودن">
                                     <svg>
                                         <use href="#i-plus"/>
                                     </svg>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </article>

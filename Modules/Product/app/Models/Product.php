@@ -5,6 +5,7 @@ namespace Modules\Product\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Modules\Cart\Models\Cart;
 use Modules\Category\Models\Category;
 use Modules\Color\Models\Color;
 use Modules\Gallery\Models\Gallery;
@@ -51,6 +52,11 @@ class Product extends Model
     public function galleries()
     {
         return $this->hasMany(Gallery::class);
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
     }
 
     // protected static function newFactory(): ProductFactory

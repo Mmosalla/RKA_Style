@@ -338,9 +338,9 @@ return [
             'zaringateApiPaymentUrl' => 'https://www.zarinpal.com/pg/StartPay/:authority/ZarinGate',
             'zaringateApiVerificationUrl' => 'https://ir.zarinpal.com/pg/services/WebGate/wsdl',
 
-            'mode' => 'normal', // can be normal, sandbox, zaringate
-            'merchantId' => '',
-            'callbackUrl' => 'http://yoursite.com/path/to',
+            'mode' => 'sandbox', // can be normal, sandbox, zaringate
+            'merchantId' => '1cd832c6-33cc-3u56-86fb-fb2cf25fc32b',
+            'callbackUrl' => 'http://127.0.0.1:8000/payment_callback',
             'description' => 'payment using zarinpal',
             'currency' => 'T', //Can be R, T (Rial, Toman)
         ],

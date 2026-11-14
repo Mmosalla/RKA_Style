@@ -29,7 +29,8 @@
     },
     "autoload": {
         "files": [
-            "Modules/Category/app/Helpers/MakeSlugHelper.php"
+            "Modules/Category/app/Helpers/MakeSlugHelper.php",
+            "Modules/Cart/app/Helpers/order_code.php"
         ],
         "psr-4": {
             "App\\": "app/",

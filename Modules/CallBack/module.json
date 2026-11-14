@@ -1,0 +1,11 @@
+{
+    "name": "CallBack",
+    "alias": "callback",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\CallBack\\Providers\\CallBackServiceProvider"
+    ],
+    "files": []
+}

@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/paymentcallback",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\PaymentCallback\\": "app/",
+            "Modules\\PaymentCallback\\Database\\Factories\\": "database/factories/",
+            "Modules\\PaymentCallback\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\PaymentCallback\\Tests\\": "tests/"
+        }
+    }
+}

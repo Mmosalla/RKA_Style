@@ -9,5 +9,10 @@
     "Gallery": true,
     "Home": true,
     "AllProduct": true,
-    "SingleProduct": true
+    "SingleProduct": true,
+    "Cart": true,
+    "Order": true,
+    "PaymentCallback": true,
+    "CallBack": true,
+    "RolePermission": true
 }

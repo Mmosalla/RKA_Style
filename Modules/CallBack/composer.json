@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/callback",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\CallBack\\": "app/",
+            "Modules\\CallBack\\Database\\Factories\\": "database/factories/",
+            "Modules\\CallBack\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\CallBack\\Tests\\": "tests/"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "PaymentCallback",
+    "alias": "paymentcallback",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\PaymentCallback\\Providers\\PaymentCallbackServiceProvider"
+    ],
+    "files": []
+}
